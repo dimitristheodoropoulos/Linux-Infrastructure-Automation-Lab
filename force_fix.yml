@@ -1,8 +1,0 @@
----
-- name: Force fix Python environment
-  hosts: all
-  become: true
-  gather_facts: false
-  tasks:
-    - name: Install python3-six using apt
-      raw: sudo apt update && sudo apt install -y python3-six

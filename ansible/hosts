@@ -1,0 +1,5 @@
+[webservers]
+web-server-vm ansible_host=192.168.122.142 ansible_user=dimitris ansible_python_interpreter=/usr/bin/python3
+
+[databases]
+db-server-vm ansible_host=192.168.122.226 ansible_user=dimitris ansible_python_interpreter=/usr/bin/python3

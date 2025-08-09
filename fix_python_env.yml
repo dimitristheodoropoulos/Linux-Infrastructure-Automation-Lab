@@ -1,0 +1,14 @@
+---
+- name: Create and configure Python virtual environment
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Install python3-venv package
+      raw: sudo apt update && sudo apt install -y python3-venv
+
+    - name: Create virtual environment
+      raw: python3 -m venv /opt/ansible_env
+
+    - name: Install six in the new virtual environment
+      raw: /opt/ansible_env/bin/pip install six

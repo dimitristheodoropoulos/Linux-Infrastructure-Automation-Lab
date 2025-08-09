@@ -1,0 +1,9 @@
+# Ignore hidden directories and temporary files
+.git/
+
+# Ignore temporary files created by editors
+*~
+*.swp
+
+# Ignore any log files
+*.log

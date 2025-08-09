@@ -1,5 +1,6 @@
 # Ignore hidden directories and temporary files
 .git/
+.venv/
 
 # Ignore temporary files created by editors
 *~
@@ -7,3 +8,6 @@
 
 # Ignore any log files
 *.log
+
+# Ignore a specific file created by the ml app
+model.joblib

@@ -40,12 +40,18 @@ def predict():
     Predicts the output based on the input JSON data.
     Input JSON should be of the format: {"data": [[x1, y1], [x2, y2]]}
     """
+    # Check if the model was loaded successfully on startup
     if loaded_model is None:
-        return jsonify({"error": "Model not loaded"}), 500
+        return jsonify({"error": "Model not loaded, contact administrator"}), 500
+
+    # Check if the request body is valid JSON
+    request_data = request.json
+    if not request_data:
+        return jsonify({"error": "Invalid JSON or no data provided"}), 400
     
-    data = request.json.get('data')
+    data = request_data.get('data')
     if not data:
-        return jsonify({"error": "No data provided"}), 400
+        return jsonify({"error": "No 'data' key found in JSON payload"}), 400
     
     try:
         input_data = np.array(data)

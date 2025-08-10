@@ -16,6 +16,8 @@ This project is a personal home lab designed to demonstrate core DevOps and MLOp
 
     KVM/QEMU: The hypervisor used for creating the virtual machines.
 
+    GitHub Actions: For building Continuous Integration/Continuous Deployment (CI/CD) pipelines.
+
 🚀 Phase 1: SysAdmin & DevOps Lab
 
 In this phase, a foundational Linux environment was built and automated. The key accomplishments include:
@@ -40,6 +42,16 @@ This phase focused on the automated deployment of a containerized machine learni
 
     Functional Verification: The successful deployment was verified by accessing the application's homepage and using a curl command to send a POST request to the /predict endpoint, confirming the model was functional and accessible.
 
-➡️ Next Steps: Phase 4 - CI/CD with GitHub Actions
+🚀 Phase 4: CI/CD with GitHub Actions
 
-The project will be expanded to include Continuous Integration and Continuous Deployment (CI/CD). A GitHub Actions workflow will be configured to automatically build and push new Docker images and trigger the Ansible deployment playbook upon code changes.
+This phase integrated Continuous Integration and Continuous Deployment (CI/CD) into the project. The key accomplishments include:
+
+    Automated Workflow: A GitHub Actions workflow was configured to automatically trigger the entire deployment process upon a git push to the main branch.
+
+    End-to-End Pipeline: The workflow automatically built a new Docker image, pushed it to Docker Hub, and then executed the Ansible playbook to pull the latest image and deploy it to the virtual machine.
+
+    Increased Efficiency: This pipeline eliminates manual steps, enabling faster and more reliable delivery of code changes to production.
+
+➡️ Next Steps: Phase 5 - Kubernetes Integration
+
+The project will be expanded to include container orchestration. The existing Docker container will be deployed using Kubernetes, demonstrating a more scalable and resilient deployment strategy.

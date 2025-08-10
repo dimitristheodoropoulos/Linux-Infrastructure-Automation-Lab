@@ -1,13 +1,31 @@
-# Ignore hidden directories and temporary files
-.git/
+# Python bytecode and cache files
+__pycache__/
+*.py[cod]
+
+# Virtual environment directory
+venv/
 .venv/
 
-# Ignore temporary files created by editors
+# IDE and editor files
+.idea/
+.vscode/
 *~
 *.swp
 
-# Ignore any log files
+# Log files
 *.log
 
-# Ignore a specific file created by the ml app
+# Machine Learning model and data files
 model.joblib
+*.npy
+*.csv
+
+# Docker and Build files
+.dockerignore
+!Dockerfile
+!docker-compose.yml
+
+# Compiled files
+dist/
+build/
+*.egg-info/

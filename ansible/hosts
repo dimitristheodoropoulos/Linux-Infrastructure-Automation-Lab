@@ -3,3 +3,6 @@ web-server-vm ansible_host=192.168.122.142 ansible_user=dimitris ansible_python_
 
 [databases]
 db-server-vm ansible_host=192.168.122.226 ansible_user=dimitris ansible_python_interpreter=/usr/bin/python3
+
+[ml_app]
+ml-app-vm ansible_host=192.168.122.136 ansible_user=dimitris ansible_python_interpreter=/home/dimitris/ansible_venv/bin/python

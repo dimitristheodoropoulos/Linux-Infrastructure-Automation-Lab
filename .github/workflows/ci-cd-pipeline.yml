@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  build-and-push-docker:
     runs-on: ubuntu-latest
     steps:
       # Step 1: Check out the repository code.
@@ -23,30 +23,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      # Step 3: Build the Docker image.
-      - name: Build Docker Image
-        id: build-image
+      # Step 3: Build and push the Docker image to Docker Hub.
+      - name: Build and Push Docker Image
         uses: docker/build-push-action@v5
         with:
           context: .
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/ml-app:latest
-
-      # Step 4: Deploy the application to the Kubernetes cluster.
-      - name: Deploy to Kubernetes
-        env:
-          KUBECONFIG_DATA: ${{ secrets.KUBE_CONFIG }}
-        run: |
-          # Write the Kubeconfig secret to a file.
-          mkdir -p $HOME/.kube
-          echo "$KUBECONFIG_DATA" > $HOME/.kube/config
-          
-          # This command ensures kubectl can connect to the cluster.
-          kubectl config use-context minikube
-          
-          # Apply the Kubernetes deployment and service files.
-          # This will update the running deployment with the new image.
-          kubectl apply -f kubernetes/deployment.yml
-          kubectl apply -f kubernetes/service.yml
 

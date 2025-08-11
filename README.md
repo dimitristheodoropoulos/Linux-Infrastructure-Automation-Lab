@@ -8,6 +8,10 @@ This project is a personal home lab designed to demonstrate core DevOps and MLOp
 
     Docker & Docker Compose: To containerize applications and orchestrate the monitoring stack.
 
+    Kubernetes: For container orchestration, managing scalable and resilient application deployments.
+
+    Minikube: A tool for running a single-node Kubernetes cluster locally.
+
     Prometheus: For collecting time-series metrics from virtual machines.
 
     Grafana: For visualizing metrics and creating dashboards.
@@ -52,6 +56,22 @@ This phase integrated Continuous Integration and Continuous Deployment (CI/CD) i
 
     Increased Efficiency: This pipeline eliminates manual steps, enabling faster and more reliable delivery of code changes to production.
 
-➡️ Next Steps: Phase 5 - Kubernetes Integration
+🚀 Phase 5: Kubernetes Integration
 
-The project will be expanded to include container orchestration. The existing Docker container will be deployed using Kubernetes, demonstrating a more scalable and resilient deployment strategy.
+This phase expanded the project to include container orchestration. The key accomplishments include:
+
+    Cluster Setup: A local Kubernetes cluster was set up using Minikube, providing a robust environment for managing containerized applications.
+
+    Declarative Deployment: The Docker container for the ML application was deployed using Kubernetes Deployment and Service objects, demonstrating a declarative and scalable deployment strategy.
+
+    Service Exposure: The application was exposed to the network using a Kubernetes NodePort Service, making it accessible from outside the cluster.
+
+🚀 Phase 6: CI/CD with Kubernetes Integration
+
+This final phase integrated the Kubernetes deployment process into the CI/CD pipeline, completing the end-to-end automation cycle. The key accomplishments include:
+
+    Updated CI/CD Workflow: The GitHub Actions workflow was updated to build and push a new Docker image to Docker Hub upon a code change, demonstrating a continuous integration process.
+
+    Manual Deployment: Due to networking constraints in a home lab environment, the deployment to the Kubernetes cluster was manually triggered on the local machine using kubectl, ensuring the cluster always runs the latest image.
+
+    Verification: The entire pipeline was verified by making a code change and confirming that the updated application was successfully deployed to the Kubernetes cluster.

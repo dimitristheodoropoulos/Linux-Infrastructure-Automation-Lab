@@ -1,0 +1,28 @@
+# /home/testuser/Linux-Infrastructure-Automation-Lab/kubernetes/deployment.yml
+# This file defines the Kubernetes Deployment for the ml-app.
+# It tells Kubernetes how to run your application's Docker image.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ml-app-deployment
+  labels:
+    app: ml-app
+spec:
+  # The number of replicas (instances) of your application to run.
+  # This makes your application resilient to failures.
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ml-app
+  template:
+    metadata:
+      labels:
+        app: ml-app
+    spec:
+      containers:
+      - name: ml-app
+        # Use the same image name you pushed to Docker Hub.
+        # Kubernetes will pull the latest version of this image.
+        image: dimitris424/ml-app:latest
+        ports:
+        - containerPort: 5000

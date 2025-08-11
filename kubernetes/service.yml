@@ -1,0 +1,17 @@
+# /home/testuser/Linux-Infrastructure-Automation-Lab/kubernetes/service.yml
+# This file defines a Kubernetes Service to expose the ml-app.
+# It provides a stable IP address and DNS name for your application.
+apiVersion: v1
+kind: Service
+metadata:
+  name: ml-app-service
+spec:
+  # Use a NodePort to expose the service on a static port on each Node's IP.
+  # This makes it easy to access the service from outside the cluster for testing.
+  type: NodePort
+  selector:
+    app: ml-app
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000

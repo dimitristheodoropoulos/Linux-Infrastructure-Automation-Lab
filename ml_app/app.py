@@ -32,7 +32,8 @@ except FileNotFoundError:
 @app.route('/')
 def home():
     """A simple home page to confirm the app is running."""
-    return "ML App is running! Use the /predict endpoint to make predictions."
+    # This is the change to identify the new version
+    return "ML App is running! This is version 2.0. Use the /predict endpoint to make predictions."
 
 @app.route('/predict', methods=['POST'])
 def predict():

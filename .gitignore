@@ -1,0 +1,32 @@
+# Python bytecode and cache files
+__pycache__/
+*.py[cod]
+
+# Virtual environment directory
+venv/
+.venv/
+
+# IDE and editor files
+.idea/
+.vscode/
+*~
+*.swp
+
+# Log files
+*.log
+
+# Machine Learning model and data files
+model.joblib
+*.npy
+*.csv
+
+# Docker and Build files
+.dockerignore
+!Dockerfile
+!docker-compose.yml
+
+# Compiled files
+dist/
+build/
+*.egg-info/
+.env

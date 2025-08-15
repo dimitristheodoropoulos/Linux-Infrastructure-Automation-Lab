@@ -1,0 +1,33 @@
+# /home/testuser/Linux-Infrastructure-Automation-Lab/kubernetes/deployment.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ml-app-deployment
+  labels:
+    app: ml-app
+spec:
+  # The number of replicas (instances) of your application to run.
+  # This makes your application resilient to failures.
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ml-app
+  template:
+    metadata:
+      labels:
+        app: ml-app
+    spec:
+      containers:
+      - name: ml-app
+        # Use the same image name you pushed to Docker Hub.
+        # Kubernetes will pull the latest version of this image.
+        image: dimitris424/ml-app:latest
+        ports:
+        - containerPort: 8000
+        env:
+        # Instead of a hardcoded value, we reference a Kubernetes Secret
+        - name: GOOGLE_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: google-api-key-secret # The name of the Kubernetes Secret
+              key: api-key # The key within the secret that holds the value

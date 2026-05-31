@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*~
+*.swp
+
+# Logs
+*.log
+
+# ML / data
+model.joblib
+*.npy
+*.csv
+
+# Docker
+.dockerignore
+!Dockerfile
+!docker-compose.yml
+
+# Build
+dist/
+build/
+*.egg-info/
+.env
+
+# Secrets – important!
+*.json
+*.key
+*.pem
+*.crt

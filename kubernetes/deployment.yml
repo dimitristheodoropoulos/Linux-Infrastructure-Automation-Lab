@@ -1,0 +1,46 @@
+# /home/dimitris/Desktop/Linux-Infrastructure-Automation-Lab-main/kubernetes/deployment.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ml-app-deployment
+  labels:
+    app: ml-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ml-app
+  template:
+    metadata:
+      labels:
+        app: ml-app
+    spec:
+      containers:
+      - name: ml-app
+        image: dimitris424/ml-app:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: GOOGLE_APPLICATION_CREDENTIALS
+          value: "/tmp/gcp-key.json"   # Διαδρομή όπου θα mounted το secret
+        volumeMounts:
+        - name: gcp-key
+          mountPath: /tmp/gcp-key.json
+          subPath: gcp-key.json
+        # --- Probes (προσθήκη) ---
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 15
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+      volumes:
+      - name: gcp-key
+        secret:
+          secretName: google-service-account-secret

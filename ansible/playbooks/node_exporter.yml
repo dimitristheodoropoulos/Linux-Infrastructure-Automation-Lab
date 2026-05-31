@@ -1,0 +1,16 @@
+---
+- name: Install and configure Node Exporter
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install Node Exporter
+      ansible.builtin.apt:
+        name: prometheus-node-exporter
+        state: present
+        update_cache: yes
+
+    - name: Enable and start Node Exporter service
+      ansible.builtin.systemd:
+        name: prometheus-node-exporter
+        state: started
+        enabled: yes

@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ml-app-deployment
+  labels:
+    app: ml-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ml-app
+  template:
+    metadata:
+      labels:
+        app: ml-app
+    spec:
+      containers:
+      - name: ml-app
+        image: dimitris424/ml-app:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: GOOGLE_APPLICATION_CREDENTIALS
+          value: "/app/gcp-key.json"
+        - name: LOGSTASH_HOST
+          value: "localhost"
+        volumeMounts:
+        - name: gcp-key
+          mountPath: /app/gcp-key.json
+          subPath: gcp-key.json
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 10
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+      volumes:
+      - name: gcp-key
+        secret:
+          secretName: google-service-account-secret

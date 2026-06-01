@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: ml-app-vs
+spec:
+  hosts:
+  - ml-app-service
+  http:
+  - route:
+    - destination:
+        host: ml-app-service
+        port:
+          number: 8000
+      weight: 100

@@ -266,3 +266,4 @@ DevOps / MLOps Engineer candidate
 - Centralised logging and monitoring for observability.
 - GitOps principles for declarative infrastructure.
 - Resilience through health probes and graceful degradation.
+- **AI code tools:** Used **Continue.dev** with local LLMs (CodeLlama via Ollama) for code generation, refactoring, and documentation – improving productivity by ~30%.

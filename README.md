@@ -1,13 +1,4 @@
-Από το validation script βλέπω:
 
-- Το `/health` δουλεύει (200 OK).
-- Το `/llm-query` δίνει `401 UNAUTHENTICATED` (το access token του service account έληξε – φυσιολογικό μετά από κάποια ώρα). Δεν πειράζει, γιατί η αγγελία ενδιαφέρεται για το deployment και το pipeline.
-
----
-
-## 📄 Προτεινόμενο README.md (αγγλικό, επαγγελματικό, με όλες τις προσθήκες)
-
-```markdown
 # Linux Infrastructure Automation Lab
 
 [![CI/CD Pipeline](https://github.com/dimitris424/Linux-Infrastructure-Automation-Lab/actions/workflows/ci-cd-pipeline.yml/badge.svg)](https://github.com/dimitris424/Linux-Infrastructure-Automation-Lab/actions/workflows/ci-cd-pipeline.yml)

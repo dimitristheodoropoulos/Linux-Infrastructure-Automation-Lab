@@ -267,3 +267,15 @@ DevOps / MLOps Engineer candidate
 - GitOps principles for declarative infrastructure.
 - Resilience through health probes and graceful degradation.
 - **AI code tools:** Used **Continue.dev** with local LLMs (CodeLlama via Ollama) for code generation, refactoring, and documentation – improving productivity by ~30%.
+
+## Dynatrace Hands‑on Trial
+
+I have completed a self‑directed trial of **Dynatrace** (AI‑powered observability platform):
+- Installed OneAgent on my Linux host (Xubuntu) – automatic discovery of processes and infrastructure.
+- Created custom dashboards monitoring CPU and memory usage (scatterplot and separate charts).
+- Explored Smartscape topology, problem detection, and anomaly alerting.
+
+![Dynatrace Dashboard](screenshots/Screenshot_2026-06-03_19-10-12.png)
+![Dynatrace Dashboard](screenshots/Screenshot_2026-06-03_19-12-22.png)
+
+This complements my core expertise in open‑source observability (Prometheus, Grafana, ELK) and demonstrates my ability to quickly master enterprise monitoring tools.
